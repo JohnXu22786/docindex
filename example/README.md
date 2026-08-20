@@ -23,6 +23,11 @@ node dist/src/cli.js query "reward" --db example/index.db --root example/workspa
 
 # Chinese search (highlights + line numbers included)
 node dist/src/cli.js query "推理模型" --db example/index.db --root example/workspace
+
+# keep the index fresh / rebuild / inspect
+node dist/src/cli.js watch --root example/workspace --db example/index.db
+node dist/src/cli.js reindex --root example/workspace --db example/index.db --full
+node dist/src/cli.js stats --db example/index.db
 ```
 
 ### In dsh
