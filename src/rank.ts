@@ -44,7 +44,9 @@ export function fuseRanks(
   semantic: readonly RankedHit[] = [],
   options: FuseOptions = {},
 ): FusedResult[] {
-  const k = options.k ?? DEFAULT_K
+  // `k` is the RRF smoothing constant; require k >= 1 so a non-positive or
+  // fractional k cannot inflate (or invert) every contribution.
+  const k = options.k === undefined || !Number.isFinite(options.k) || options.k < 1 ? DEFAULT_K : options.k
   const wSem = clampUnit(options.semanticWeight ?? 0.5)
   const wLex = 1 - wSem
 

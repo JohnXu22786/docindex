@@ -47,3 +47,14 @@ test('rank: rrfContribution uses the standard reciprocal form', () => {
   assert.equal(rrfContribution(1, 60), 1 / 61)
   assert.equal(rrfContribution(2, 60), 1 / 62)
 })
+
+test('rank: a non-positive or fractional k falls back to the default', () => {
+  const identity = { segId: 1 }
+  const small = fuseRanks(toRanks([identity]), [], { semanticWeight: 0, k: 0 })
+  const negative = fuseRanks(toRanks([identity]), [], { semanticWeight: 0, k: -5 })
+  const fractional = fuseRanks(toRanks([identity]), [], { semanticWeight: 0, k: 0.5 })
+  const expected = fuseRanks(toRanks([identity]), [], { semanticWeight: 0 })
+  assert.deepEqual(small, expected)
+  assert.deepEqual(negative, expected)
+  assert.deepEqual(fractional, expected)
+})
