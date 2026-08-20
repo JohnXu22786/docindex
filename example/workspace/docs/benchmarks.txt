@@ -1,0 +1,12 @@
+Benchmark results, 2026-08
+
+model: llama.cpp gguf (q8_0), 32 threads
+gpu: cuda 12.4
+
+| benchmark | tokens/sec | notes |
+|-----------|-----------|-------|
+| prompt processing |  1842 | warm cache |
+| generation |  96 | greedy sampling |
+
+memory: 7.2 GB peak
+latency p95: 41 ms per token

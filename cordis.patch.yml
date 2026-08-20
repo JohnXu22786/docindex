@@ -1,0 +1,20 @@
+# dsh bundle patch for `dsh-doc-index`.
+#
+# Inserts the plugin row that mounts the workspace document index service and
+# its four model-facing tools. Per dsh include semantics, a later patch layer
+# (the profile's cordis.patch.yml or a `--patch` overlay) replaces this row's
+# entire `config`, so any or all keys may be overridden there.
+#
+# Example override (profile cordis.patch.yml):
+#
+#   - id: doc-index
+#     config:
+#       roots:
+#         - /path/to/workspace
+#       dbPath: /path/to/doc-index/index.db
+#       embedding:
+#         provider: transformers   # needs `npm i @huggingface/transformers`
+#
+- insert:
+    - id: doc-index
+      name: dsh-doc-index
