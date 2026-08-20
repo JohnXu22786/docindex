@@ -1,5 +1,9 @@
 # dsh-doc-index
 
+[![npm version](https://img.shields.io/npm/v/dsh-doc-index)](https://www.npmjs.com/package/dsh-doc-index)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
+[中文说明](./README.zh.md)
+
 A **dsh bundle** that turns a workspace into a searchable local knowledge base:
 it builds a semantic document index over your local Markdown / plain text /
 PDF / DOCX / PPTX / XLSX files, and lets you (or an agent) query it with

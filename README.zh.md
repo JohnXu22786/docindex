@@ -1,5 +1,9 @@
 # dsh-doc-index
 
+[![npm version](https://img.shields.io/npm/v/dsh-doc-index)](https://www.npmjs.com/package/dsh-doc-index)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
+[English](./README.md)
+
 一个 **dsh bundle**：将工作区变为可检索的本地知识库。它会对本地的
 Markdown / 纯文本 / PDF / DOCX / PPTX / XLSX 文档建立语义索引，并支持用自然
 语言或关键词查询——返回命中文档、**带精确行号**的片段与相关度分数。
