@@ -253,3 +253,6 @@ See `example/` for a small sample workspace.
 ## License
 
 [MIT](LICENSE)
+
+Found a bug or want a new extractor? Open an issue at
+[github.com/JohnXu22786/docindex](https://github.com/JohnXu22786/docindex/issues).

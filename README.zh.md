@@ -231,3 +231,6 @@ npm test             # 构建并运行完整测试（node:test，无额外依赖
 ## 许可证
 
 [MIT](LICENSE)
+
+遇到问题或希望支持新的文档类型？欢迎在
+[github.com/JohnXu22786/docindex](https://github.com/JohnXu22786/docindex/issues) 提交 issue。
