@@ -45,6 +45,13 @@ Markdown / 纯文本 / PDF / DOCX / PPTX / XLSX 文档建立语义索引，并�
 dsh plugin add <本包路径>
 ```
 
+本包也已发布到 npm，可独立使用 CLI：
+
+```bash
+npm install -g dsh-doc-index   # 提供 `docindex` CLI
+npm install dsh-doc-index      # 或作为项目依赖加入
+```
+
 自带的 `cordis.patch.yml` 只插入一行插件：
 
 ```yaml

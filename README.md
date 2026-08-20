@@ -52,6 +52,13 @@ mount it via a patch layer:
 dsh plugin add <path-to-this-package>
 ```
 
+The package is also on npm for the standalone CLI:
+
+```bash
+npm install -g dsh-doc-index   # provides the `docindex` CLI
+npm install dsh-doc-index      # or add it as a project dependency
+```
+
 The shipped `cordis.patch.yml` inserts one plugin row:
 
 ```yaml
