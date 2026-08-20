@@ -42,6 +42,7 @@
     "watch": "tsc -p tsconfig.build.json --watch",
     "test": "npm run build && node --disable-warning=ExperimentalWarning --test \"dist/test/*.test.js\"",
     "test:only": "node --test dist/test",
+    "prepublishOnly": "npm run build",
     "cli": "node dist/src/cli.js"
   },
   "dsh": {
