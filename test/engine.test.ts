@@ -55,6 +55,24 @@ test('engine: scan + query lexical roundtrip with path/line/snippet/score', asyn
   }
 })
 
+test('engine: lexical search ranks an exact CJK match ahead of partial token matches', async () => {
+  const query = '可再生能源消费最低比重目标 消纳责任权重'
+  const dir = makeWorkspace({
+    'exact.md': `# Exact match\n\n${query}实施办法`,
+    'partial.md': '# Partial match\n\n仅提到项目目标与责任分工。',
+  })
+  const engine = makeEngine(dir, { embedding: { provider: 'none' } })
+  try {
+    await engine.scan()
+    const result = await engine.query({ query, mode: 'lexical', topK: 2 })
+    assert.equal(result.hits.length, 2)
+    assert.match(result.hits[0]!.path, /exact\.md$/)
+  } finally {
+    engine.close()
+    cleanup(dir)
+  }
+})
+
 test('engine: semantic search returns the correct top hit', async () => {
   const dir = makeWorkspace({
     'target.md': '# Target\n\nthe quick brown fox jumps over the lazy dog',
