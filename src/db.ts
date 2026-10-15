@@ -44,7 +44,7 @@ export interface SegmentRow {
 
 export interface LexicalHit {
   segId: number
-  /** Raw FTS5 bm25() value (negative; larger is better). */
+  /** Raw FTS5 bm25() value (negative; more negative is a better match). */
   bm25: number
 }
 
@@ -227,11 +227,11 @@ export class IndexDb {
 
   /**
    * Lexical search over the FTS table. Returns the best `limit` segments by
-   * FTS5 `bm25()` (best-first; bm25 is negative, so sort descending).
+   * FTS5 `bm25()` (best-first; more negative scores are better, so sort ascending).
    */
   searchLexical(matchQuery: string, limit: number): LexicalHit[] {
     const stmt = this.db.prepare(
-      'SELECT rowid AS segId, bm25(segments_fts) AS bm25 FROM segments_fts WHERE segments_fts MATCH ? ORDER BY bm25(segments_fts) DESC LIMIT ?',
+      'SELECT rowid AS segId, bm25(segments_fts) AS bm25 FROM segments_fts WHERE segments_fts MATCH ? ORDER BY bm25(segments_fts) ASC LIMIT ?',
     )
     return stmt.all(matchQuery, limit) as unknown as LexicalHit[]
   }
